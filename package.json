@@ -1,6 +1,6 @@
 {
   "name": "consolelog_redirect",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "redirect console log on a writable stream",
   "main": "index.js",
   "scripts": {

@@ -1,9 +1,8 @@
-
 var Stdout = require('../index');
 
 var fs = require('fs');
 
-describe('NOOT.Stdout', function() {
+describe('console.log redirect', function() {
 
   var singleton1 = '';
   var singleton2 = '';
@@ -20,3 +19,5 @@ describe('NOOT.Stdout', function() {
   });
 
 });
+
+

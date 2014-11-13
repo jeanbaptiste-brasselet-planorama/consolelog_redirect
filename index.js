@@ -1,41 +1,22 @@
-
-/**
- * Created by jean-baptiste on 07/11/14.
- */
-
 var NOOT = require('noot')('core-object');
-
 var Through2 = require('through2');
 
 var Stdout = NOOT.CoreObject.extend({
-  wsstream: '',
-  test:'',
+  writableStream: '',
+  _writableStream:'',
   stdout: '',
   duplex: '',
 
   init: function() {
-    this.setwwstream(this.wsstream);
+    this.setWritableStream(this.writableStream);
   },
 
-  setwwstream: function(wsstream) {
-    /*var MyStream = function (options) {
-     Writable.call(this, options);
-     }
+  setWritableStream: function(writableStream) {
 
-     util.inherits(MyStream, Writable);
-
-     MyStream.prototype._write = function (chunk, enc, cb) {
-     wsstream(chunk.toString('utf8'));
-     cb();
-     };*/
-
-    //this.test = new MyStream();
-
-    this.test = new Through2(function(chunk, enc, cb) {
-      wsstream(chunk.toString());
+    this._writableStream = new Through2(function(chunk, enc, cb) {
+      writableStream(chunk.toString());
       cb();
     });
-    //this.test = new through2(wsstream);
   },
 
   redirect: function () {
@@ -44,13 +25,13 @@ var Stdout = NOOT.CoreObject.extend({
 
     console._stdout = this.duplex;
     this.duplex.pipe(process.stdout);
-    this.duplex.pipe(this.test);
+    this.duplex.pipe(this._writableStream);
 
   },
 
-  unredirect: function () {
+  destroy: function () {
     console._stdout = process.stdout;
-    this.test.end();
+    this._writableStream.end();
     this.duplex.end();
   }
 
