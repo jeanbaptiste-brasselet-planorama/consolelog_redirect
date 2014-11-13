@@ -1,0 +1,2 @@
+consolelog_redirect
+===================
