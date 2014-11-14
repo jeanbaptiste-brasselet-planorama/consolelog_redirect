@@ -13,10 +13,10 @@ var Through2 = require('through2');
  *
  **********************************************************************************************************************/
 var Stdout = NOOT.Object.extend({
+
   writer: null,
   _writableStream: null,
   _duplex: null,
-
 
   /**
    * Constructor
@@ -33,12 +33,10 @@ var Stdout = NOOT.Object.extend({
    */
 
   setWritableStream: function(writer) {
-
     this._writableStream = new Through2(function(chunk, enc, cb) {
       writer(chunk.toString('utf8'));
       return cb();
     });
-
   },
 
   /**
@@ -49,9 +47,10 @@ var Stdout = NOOT.Object.extend({
     console._stdout = this._duplex;
     this._duplex.pipe(process.stdout);
     this._duplex.pipe(this._writableStream);
-
   }
+
 }, {
+
   instance: null,
 
   /**
@@ -67,6 +66,7 @@ var Stdout = NOOT.Object.extend({
 
     return this.instance;
   }
+
 });
 
 /**
