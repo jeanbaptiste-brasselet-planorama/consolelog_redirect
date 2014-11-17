@@ -1,6 +1,6 @@
 {
-  "name": "consolelog_redirect",
-  "version": "0.3.0",
+  "name": "log-redir",
+  "version": "0.4.2",
   "description": "redirect console log on a writable stream",
   "main": "index.js",
   "scripts": {
@@ -8,17 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jeanbaptiste-brasselet-planorama/consolelog_redirect.git"
+    "url": "git://github.com/jeanbaptiste-brasselet-planorama/.git"
   },
-  "author": "Brasselet Jean-Baptiste <jeanbaptiste.brasselet@planorama.com>",
+  "author": "Planorama CVDM Solutions <jeanbaptiste.brasselet@planorama.com>",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/jeanbaptiste-brasselet-planorama/consolelog_redirect/issues"
+    "url": "https://github.com/jeanbaptiste-brasselet-planorama/log-redir/issues"
   },
   "dependencies": {
     "noot": "~0.4.2",
-    "through2": "~0.6.3",
-    "async": "~0.9.0"
+    "through2": "~0.6.3"
   },
   "devDependencies": {
     "chai": "^1.9.1",
@@ -28,7 +27,6 @@
     "grunt-jscs": "^0.6.2",
     "grunt-mocha-cov": "^0.3.0",
     "jshint-stylish": "^0.1.5",
-    "mocha": "~1.21.0",
-    "supertest": "^0.13.0"
+    "mocha": "~1.21.0"
   }
 }
